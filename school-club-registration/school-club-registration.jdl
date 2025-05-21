@@ -1,0 +1,45 @@
+application {
+  config {
+    baseName schoolClubRegistration
+    packageName com.example.schoolclub
+    applicationType monolith
+    authenticationType jwt
+    prodDatabaseType postgresql
+    devDatabaseType h2Disk
+    buildTool maven
+    clientFramework angular
+    enableTranslation false
+  }
+
+  entities Club, Registration
+}
+
+enum RegistrationStatus {
+  PENDING,
+  APPROVED,
+  REJECTED
+}
+
+entity Club {
+  name String required maxlength(100)
+  description String
+  maxMembers Integer required min(1)
+}
+
+entity Registration {
+  registrationDate Instant required
+  status RegistrationStatus required
+}
+
+relationship OneToMany {
+  Club{registrations} to Registration{club required}
+}
+
+relationship ManyToOne {
+  Registration{user(login) required} to User with builtInEntity
+}
+
+
+dto Registration with mapstruct
+service Club, Registration with serviceClass
+paginate Club, Registration with pagination

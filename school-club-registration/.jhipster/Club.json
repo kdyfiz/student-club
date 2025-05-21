@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20250521034528"
+  },
+  "applications": ["schoolClubRegistration"],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxMembers",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "1"
+    }
+  ],
+  "name": "Club",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "registration",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "registrations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
