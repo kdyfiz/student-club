@@ -1,0 +1,37 @@
+entity Club {
+  name String required maxlength(50),
+  description String maxlength(500)
+}
+
+entity StudentProfile {
+  studentId String required unique,
+  fullName String required maxlength(100),
+  grade String required
+}
+
+entity StudentClubRegistration {
+  registrationDate Instant required,
+  status RegistrationStatus required
+}
+
+enum RegistrationStatus {
+  PENDING,
+  APPROVED,
+  REJECTED
+}
+
+relationship OneToOne {
+  StudentProfile{user(login)} to User with builtInEntity
+}
+
+relationship OneToMany {
+  StudentClubRegistration{studentProfile} to StudentProfile
+}
+
+relationship ManyToOne {
+  StudentClubRegistration{club(name)} to Club
+}
+
+service StudentProfile, StudentClubRegistration with serviceClass
+paginate StudentClubRegistration with pagination
+

@@ -1,0 +1,62 @@
+```json
+{
+  "name": "Student Club Registration Platform",
+  "description": "Guides the AI to understand and generate code for a student club registration platform, enforcing club limits and password requirements, with a user-friendly and accessible UI/UX.",
+  "triggers": [
+    {
+      "type": "file_extension",
+      "values": [".js", ".jsx", ".ts", ".tsx", ".py", ".java", ".html", ".css", ".sql"]
+    },
+    {
+      "type": "file_content",
+      "contains": ["student", "club", "registration", "account", "password", "limit", "extracurricular", "interests", "username", "student ID", "grade"]
+    },
+    {
+      "type": "prompt_content",
+      "contains": ["student club registration", "club selection", "account creation", "club limit", "password validation", "registration form", "club listing", "student account"]
+    }
+  ],
+  "actions": [
+    {
+      "type": "set_context",
+      "context": {
+        "domain": "Student Club Registration",
+        "purpose": "Allowing students to register for school clubs with a limit of two clubs.",
+        "features": [
+          "User Registration (username, password, student ID, name, grade)",
+          "Club Listing (name, description, image - optional)",
+          "Club Selection (up to two clubs)",
+          "Club Limit Enforcement (maximum two clubs)",
+          "Registration Confirmation (display selected clubs)",
+          "Password Validation (minimum 8 characters)",
+          "Error Handling (invalid input, exceeding club limit)",
+          "Account Management (profile update, password reset)"
+        ],
+        "target_audience": "Students",
+        "ui_ux_guidelines": {
+          "design_system": "Use a clean and intuitive design system (e.g., Material Design, Bootstrap) suitable for student users.",
+          "responsiveness": "Ensure the UI is fully responsive across different devices (desktops, tablets, mobile phones).",
+          "interactivity": "Incorporate interactive elements like modals, tooltips, and clear feedback mechanisms.",
+          "accessibility": "Follow accessibility guidelines (WCAG) to ensure the platform is usable by students with disabilities.  Pay particular attention to form labels and keyboard navigation.",
+          "user_flow": "Design a simple and straightforward registration process with minimal steps.",
+          "performance": "Optimize the UI for fast loading times and smooth performance, especially on mobile devices.",
+          "feedback": "Provide clear and immediate feedback to user actions (e.g., loading indicators, success/error messages).",
+          "consistency": "Maintain consistent styling and behavior across all pages and components.",
+          "modern_aesthetics": "Utilize a visually appealing color palette and modern UI patterns.",
+          "error_handling": "Provide clear and helpful error messages that guide the user to correct their input."
+        },
+        "business_rules": {
+          "club_limit": "Students can register for a maximum of 2 clubs.",
+          "password_minimum_length": "Password must be at least 8 characters long.",
+          "registration_period": "Club registration is only open during the designated registration period.  (Consider adding logic to check the current date against start and end dates).",
+          "unique_username": "Usernames must be unique."
+        }
+      }
+    },
+    {
+        "type":"add_instruction",
+        "instruction":"When generating UI code or suggestions, prioritize usability, accessibility, and a clean, modern aesthetic. Ensure the UI aligns with the specified design system and accessibility guidelines. Focus on creating an intuitive registration process and providing clear feedback to user actions. Optimize for performance, especially on mobile devices. When generating backend code, focus on enforcing business rules (club limit, password validation, registration period) and data security.  Implement robust error handling."
+    }
+  ]
+}
+```

@@ -1,0 +1,27 @@
+{
+  "registerClubApp": {
+    "studentClubRegistration": {
+      "home": {
+        "title": "Student Club Registrations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Student Club Registration",
+        "createOrEditLabel": "Create or edit a Student Club Registration",
+        "notFound": "No Student Club Registrations found"
+      },
+      "created": "A new Student Club Registration is created with identifier {{ param }}",
+      "updated": "A Student Club Registration is updated with identifier {{ param }}",
+      "deleted": "A Student Club Registration is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Student Club Registration {{ id }}?"
+      },
+      "detail": {
+        "title": "Student Club Registration"
+      },
+      "id": "ID",
+      "registrationDate": "Registration Date",
+      "status": "Status",
+      "studentProfile": "Student Profile",
+      "club": "Club"
+    }
+  }
+}

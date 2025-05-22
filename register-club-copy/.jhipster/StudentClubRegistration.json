@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20250522023522"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "registrationDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "RegistrationStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PENDING,APPROVED,REJECTED"
+    }
+  ],
+  "name": "StudentClubRegistration",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "studentProfile",
+      "relationshipName": "studentProfile",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "club",
+      "relationshipName": "club",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
