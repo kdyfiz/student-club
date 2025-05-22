@@ -9,9 +9,9 @@ application {
     buildTool maven
     clientFramework react
     enableTranslation false
+    nativeLanguage en
+    testFrameworks [cypress]
   }
-
-  entities Club, Registration
 }
 
 enum RegistrationStatus {
@@ -24,11 +24,20 @@ entity Club {
   name String required maxlength(100)
   description String
   maxMembers Integer required min(1)
+  createdBy String required
+  createdDate Instant required
+  lastModifiedBy String
+  lastModifiedDate Instant
 }
 
 entity Registration {
   registrationDate Instant required
   status RegistrationStatus required
+  comments String
+  createdBy String required
+  createdDate Instant required
+  lastModifiedBy String
+  lastModifiedDate Instant
 }
 
 relationship OneToMany {
@@ -39,6 +48,6 @@ relationship ManyToOne {
   Registration{user(login) required} to User with builtInEntity
 }
 
-dto Registration with mapstruct
-service Club, Registration with serviceClass
-paginate Club, Registration with infinite-scroll
+dto * with mapstruct
+service * with serviceClass
+pagination * with pagination 
